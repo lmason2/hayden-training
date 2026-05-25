@@ -45,6 +45,7 @@ const NAV_LINKS = [
   { href: "/#services",   label: "Services"  },
   { href: "/#about",      label: "About"     },
   { href: "/#philosophy", label: "Philosophy" },
+  { href: "/contact",     label: "Contact"   },
 ];
 
 function Nav() {
@@ -90,14 +91,15 @@ function Nav() {
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-nav">
-            Begin
-          </Link>
         </nav>
 
-        {/* Mobile CTA */}
-        <Link href="/contact" className="md:hidden btn-nav" style={{ padding: "0.5rem 1rem" }}>
-          Begin
+        {/* Mobile contact link */}
+        <Link
+          href="/contact"
+          className="md:hidden label-caps transition-opacity duration-300 hover:opacity-100"
+          style={{ opacity: 0.55 }}
+        >
+          Contact
         </Link>
       </div>
     </header>

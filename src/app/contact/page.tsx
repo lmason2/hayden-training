@@ -26,7 +26,7 @@ export default function ContactPage() {
       >
         <div className="mx-auto max-w-6xl px-8">
           <div className="flex items-center gap-4 mb-6">
-            <div className="h-px w-10" style={{ backgroundColor: "var(--color-sage)" }} />
+            <div style={{ height: "2px", width: "20px", backgroundColor: "var(--hm-terracotta)" }} />
             <span className="label-caps">Contact</span>
           </div>
           <h1

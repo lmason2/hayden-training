@@ -46,6 +46,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* offset for fixed nav height */
 }
 
 body {
@@ -127,21 +128,21 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Button / Link Patterns ──────────────────────────────────────────────── */
 
-/* Charcoal fill → terracotta on hover */
+/* Terracotta fill → rust on hover */
 .btn-primary {
   display: inline-block;
   font-size: 0.65rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   padding: 1rem 2rem;
-  background-color: var(--color-primary);
+  background-color: var(--hm-terracotta);
   color: var(--color-bg);
-  border: 1px solid var(--color-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid var(--hm-terracotta);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .btn-primary:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
+  background-color: var(--hm-rust);
+  border-color: var(--hm-rust);
   color: var(--color-bg);
 }
 
@@ -196,12 +197,12 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-bg);
 }
 
-/* Service card hover */
+/* Service card hover → dust blue tint */
 .service-card {
   transition: background-color 0.3s ease;
 }
 .service-card:hover {
-  background-color: var(--color-bg-muted);
+  background-color: color-mix(in srgb, var(--hm-dust-blue) 18%, var(--color-bg));
 }
 
 /* Link colour swap → accent on hover */

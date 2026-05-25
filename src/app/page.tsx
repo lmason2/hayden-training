@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import HeroCarousel from "./components/HeroCarousel";
 
 /* ─── Content ────────────────────────────────────────────────────────────────
    Swap copy and assets here when ready.
@@ -94,14 +96,14 @@ function Hero() {
       className="relative min-h-screen flex items-center"
       style={{ backgroundColor: "var(--color-bg)", paddingTop: "5rem" }}
     >
-      <div className="mx-auto max-w-6xl w-full px-8 py-28 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="mx-auto max-w-6xl w-full px-8 py-16 grid lg:grid-cols-2 gap-16 items-center">
 
         {/* Text */}
         <div className="flex flex-col gap-8 animate-fade-in-up">
 
           {/* Eyebrow */}
           <div className="flex items-center gap-4">
-            <div className="h-px w-10" style={{ backgroundColor: "var(--color-sage)" }} />
+            <div style={{ height: "2px", width: "20px", backgroundColor: "var(--hm-terracotta)" }} />
             <span className="label-caps">{HERO.eyebrow}</span>
           </div>
 
@@ -149,24 +151,19 @@ function Hero() {
           </div>
         </div>
 
-        {/* Image placeholder */}
+        {/* Carousel */}
         <div className="relative hidden lg:block animate-fade-in delay-3">
           <div
-            className="w-full flex items-end p-8"
             style={{
+              position: "relative",
+              width: "100%",
               aspectRatio: "3 / 4",
               maxHeight: "600px",
-              backgroundColor: "var(--color-bg-muted)",
+              overflow: "hidden",
               border: "1px solid var(--color-border)",
             }}
           >
-            {/* TODO: Replace with <Image src="/hayden.jpg" fill alt="Hayden Mason" className="object-cover" /> */}
-            <div className="w-full">
-              <div className="thin-line mb-4" />
-              <span className="label-caps" style={{ fontSize: "0.6rem" }}>
-                Portrait — Coming Soon
-              </span>
-            </div>
+            <HeroCarousel />
           </div>
           {/* Decorative offset frame */}
           <div
@@ -175,8 +172,8 @@ function Hero() {
               width: "100%",
               maxHeight: "600px",
               height: "100%",
-              border: "1px solid var(--hm-sage)",
-              opacity: 0.25,
+              border: "1.5px solid var(--hm-sage)",
+              opacity: 0.55,
             }}
           />
         </div>
@@ -201,17 +198,17 @@ function Statement() {
     <section
       id="philosophy"
       className="py-24 md:py-36"
-      style={{ backgroundColor: "var(--color-bg-muted)" }}
+      style={{ backgroundColor: "var(--hm-dust-blue)", scrollMarginTop: "5rem" }}
     >
       <div className="mx-auto max-w-4xl px-8 text-center">
 
         <div className="flex items-center justify-center gap-6 mb-12">
-          <div className="h-px flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+          <div className="h-px flex-1" style={{ backgroundColor: "rgba(46,41,37,0.2)" }} />
           <div
-            className="w-1.5 h-1.5 rotate-45"
-            style={{ backgroundColor: "var(--color-sage)" }}
+            className="w-2 h-2 rotate-45"
+            style={{ backgroundColor: "var(--hm-terracotta)" }}
           />
-          <div className="h-px flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+          <div className="h-px flex-1" style={{ backgroundColor: "rgba(46,41,37,0.2)" }} />
         </div>
 
         <blockquote
@@ -220,19 +217,19 @@ function Statement() {
             fontFamily: "var(--font-cormorant), Georgia, serif",
             fontWeight: 300,
             fontStyle: "italic",
-            color: "var(--color-primary)",
+            color: "var(--hm-charcoal)",
           }}
         >
           &ldquo;{PHILOSOPHY.statement}&rdquo;
         </blockquote>
 
         <div className="flex items-center justify-center gap-6 mt-12">
-          <div className="h-px flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+          <div className="h-px flex-1" style={{ backgroundColor: "rgba(46,41,37,0.2)" }} />
           <div
-            className="w-1.5 h-1.5 rotate-45"
-            style={{ backgroundColor: "var(--color-sage)" }}
+            className="w-2 h-2 rotate-45"
+            style={{ backgroundColor: "var(--hm-terracotta)" }}
           />
-          <div className="h-px flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+          <div className="h-px flex-1" style={{ backgroundColor: "rgba(46,41,37,0.2)" }} />
         </div>
       </div>
     </section>
@@ -246,14 +243,14 @@ function Services() {
     <section
       id="services"
       className="py-24 md:py-36"
-      style={{ backgroundColor: "var(--color-bg)" }}
+      style={{ backgroundColor: "var(--color-bg)", scrollMarginTop: "5rem" }}
     >
       <div className="mx-auto max-w-6xl px-8">
 
         {/* Section header */}
         <div className="mb-16 md:mb-20">
           <div className="flex items-center gap-4 mb-6">
-            <div className="h-px w-10" style={{ backgroundColor: "var(--color-sage)" }} />
+            <div style={{ height: "2px", width: "20px", backgroundColor: "var(--hm-sage)" }} />
             <span className="label-caps">The Method</span>
           </div>
           <h2
@@ -311,7 +308,8 @@ function ServiceCard({
         style={{
           fontFamily: "var(--font-cormorant), Georgia, serif",
           fontWeight: 300,
-          color: "var(--color-border)",
+          color: "var(--hm-terracotta)",
+          opacity: 0.55,
           lineHeight: 1,
         }}
       >
@@ -335,8 +333,8 @@ function ServiceCard({
 
       {/* Animated rule */}
       <div
-        className="h-px transition-all duration-500 group-hover:w-full"
-        style={{ width: "2rem", backgroundColor: "var(--color-sage)" }}
+        className="transition-all duration-500 group-hover:w-full"
+        style={{ height: "2px", width: "2rem", backgroundColor: "var(--hm-sage)" }}
       />
 
       {/* Description */}
@@ -367,46 +365,49 @@ function About() {
     <section
       id="about"
       className="py-24 md:py-36"
-      style={{ backgroundColor: "var(--color-bg-muted)" }}
+      style={{ backgroundColor: "var(--color-bg-muted)", scrollMarginTop: "5rem" }}
     >
       <div className="mx-auto max-w-6xl px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-          {/* Image placeholder */}
+          {/* Hayden portrait */}
           <div className="relative">
+            {/* Decorative offset frame — behind the image */}
             <div
-              className="w-full flex items-end p-8"
+              className="absolute -top-4 -left-4 w-full h-full pointer-events-none"
               style={{
-                aspectRatio: "4 / 5",
-                backgroundColor: "var(--color-bg-dark)",
-                border: "1px solid var(--color-border)",
-              }}
-            >
-              {/* TODO: Replace with <Image src="/hayden.jpg" fill alt="Hayden Mason" className="object-cover" /> */}
-              <div className="w-full">
-                <div className="thin-line mb-4" />
-                <span className="label-caps" style={{ fontSize: "0.6rem" }}>
-                  Portrait — Coming Soon
-                </span>
-              </div>
-            </div>
-            {/* Decorative offset */}
-            <div
-              className="absolute -top-4 -left-4 pointer-events-none"
-              style={{
-                width: "100%",
-                height: "100%",
-                border: "1px solid var(--hm-sage)",
-                opacity: 0.22,
+                border: "1.5px solid var(--hm-sage)",
+                opacity: 0.6,
+                zIndex: 0,
               }}
             />
+            {/* Image — in front of frame */}
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                aspectRatio: "4 / 5",
+                overflow: "hidden",
+                border: "1px solid var(--color-border)",
+                zIndex: 1,
+              }}
+            >
+              <Image
+                src="/hayden.JPG"
+                alt="Hayden Mason"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover object-top"
+                priority
+              />
+            </div>
           </div>
 
           {/* Text */}
           <div className="flex flex-col gap-8 lg:pt-10">
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="h-px w-10" style={{ backgroundColor: "var(--color-sage)" }} />
+                <div style={{ height: "2px", width: "20px", backgroundColor: "var(--hm-terracotta)" }} />
                 <span className="label-caps">{ABOUT.eyebrow}</span>
               </div>
               <h2
@@ -460,7 +461,7 @@ function Testimonials() {
         {/* Header */}
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-6">
-            <div className="h-px w-10" style={{ backgroundColor: "var(--hm-sage)" }} />
+            <div style={{ height: "2px", width: "20px", backgroundColor: "var(--hm-sage)" }} />
             <span className="label-caps" style={{ color: "var(--hm-sage)" }}>
               Client Perspectives
             </span>
